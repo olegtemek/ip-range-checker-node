@@ -21,7 +21,7 @@ function isIPInRange(ranges: string[][], ipsCheck: string[]) {
       let ipCheckNum: number = ipToNum(ipCheck);
 
       if (ipCheckNum >= ip1Num && ipCheckNum <= ip2Num) {
-        console.log(`Ip match in this range: (${range[0]} - ${range[1]}) - ${ipCheck}`);
+        fs.appendFileSync(`${process.env.PWD}/ban.txt`, `${ipCheck}\n`)
       }
     });
   });
