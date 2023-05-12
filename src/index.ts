@@ -30,9 +30,9 @@ function isIPInRange(ranges: string[][], ipsCheck: string[]) {
   });
 
   // diff  matchips and ips
-  const result: string[] = ipsCheck.filter(d => !matchIps.includes(d))
+  const notMatch: string[] = ipsCheck.filter(d => !matchIps.includes(d))
   // write ip who not matched
-  result.forEach(ip => {
+  notMatch.forEach(ip => {
     fs.appendFileSync(`${process.env.PWD}/not-match.txt`, `${ip}\n`)
   });
 
