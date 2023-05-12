@@ -12,7 +12,7 @@
 ``` bash
 $ npm run build
 ```
-2. Create 2 txt files
+2. Create 3 txt files
 ``` bash
 $ touch ./build/ranges.txt && touch ./build/ips.txt && touch ./build/ban.txt
 ```
