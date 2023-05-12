@@ -12,19 +12,36 @@ function isIPInRange(ranges: string[][], ipsCheck: string[]) {
     return result;
   }
 
+  const matchIps: string[] = []
   ranges.forEach(range => {
     const ip1Num: number = ipToNum(range[0]);
     const ip2Num: number = ipToNum(range[1]);
 
-    ipsCheck.forEach(ipCheck => {
+    ipsCheck.forEach((ipCheck) => {
 
       let ipCheckNum: number = ipToNum(ipCheck);
 
       if (ipCheckNum >= ip1Num && ipCheckNum <= ip2Num) {
-        fs.appendFileSync(`${process.env.PWD}/ban.txt`, `${ipCheck}\n`)
+        //match ip
+        matchIps.push(ipCheck)
       }
     });
+
   });
+
+  // diff  matchips and ips
+  const result: string[] = ipsCheck.filter(d => !matchIps.includes(d))
+  // write ip who not matched
+  result.forEach(ip => {
+    fs.appendFileSync(`${process.env.PWD}/not-match.txt`, `${ip}\n`)
+  });
+
+
+  //write ip who matched
+  matchIps.forEach(ip => {
+    fs.appendFileSync(`${process.env.PWD}/match.txt`, `${ip}\n`)
+  })
+
 }
 
 

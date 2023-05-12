@@ -4,7 +4,7 @@
 * You can add ips to file -> ips.txt
 * You can add ranges to file -> ranges.txt
 * You get ips match in your ranges
-* In ban.txt you will get ips that matched in the range
+* In ban.txt you will get ips that not matched and matched in the range
 
 ## General settings
 
@@ -12,9 +12,9 @@
 ``` bash
 $ npm run build
 ```
-2. Create 3 txt files
+2. Create 4 txt files
 ``` bash
-$ touch ./build/ranges.txt && touch ./build/ips.txt && touch ./build/ban.txt
+$ touch ./build/ranges.txt && touch ./build/ips.txt && touch ./build/match.txt && touch ./build/not-match.txt
 ```
 3. ranges.txt
 > 192.168.1.1, 193.168.1.1<br>
